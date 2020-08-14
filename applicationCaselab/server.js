@@ -23,7 +23,22 @@ mongoose.Promise = bluebird;
 mongoose.connect(MONGODB_URI || "mongodb://localhost/user-db",{ useNewUrlParser: true, useUnifiedTopology: true,useFindAndModify: false })
 	.then(() => console.log("Database Connected Successfully"))
 	.catch(err => console.log('error', err));
+if (process.env.NODE_ENV === "production") {
+	
+	// Set static folder
+	app.use(express.static("adaptation-plan-frontend/build"));
+	
+	// index.html for all page routes
+	/*	app.get("*", (req, res) => {
+      res.sendFile(path.resolve(__dirname, "../adaptation-plan-frontend", "build", "index.html"));
+    });*/
+}
 
+const port = process.env.PORT || 3001
+
+app.listen(port, () => {
+	console.log(`Server Running at ${port}`)
+});
 app.use(morgan('tiny'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true}));
@@ -42,19 +57,3 @@ app.use('/', checkToken, currentPlan);
 app.use('/', checkToken, plan);
 app.use(errorHandler);
 
-if (process.env.NODE_ENV === "production") {
-	
-	// Set static folder
-	app.use(express.static("adaptation-plan-frontend/build"));
-	
-	// index.html for all page routes
-/*	app.get("*", (req, res) => {
-		res.sendFile(path.resolve(__dirname, "../adaptation-plan-frontend", "build", "index.html"));
-	});*/
-}
-
-const port = process.env.PORT || 3001
-
-app.listen(port, () => {
-	console.log(`Server Running at ${port}`)
-});
