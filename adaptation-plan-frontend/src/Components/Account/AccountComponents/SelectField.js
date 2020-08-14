@@ -12,7 +12,7 @@ function SelectField(props) {
     startValue = { label: props.value, value: ''}
   else
     startValue = { label: 'Выберите', value: ''}
-  console.log('startValue', startValue)
+  
   useEffect(() => {
     setOptions(props.options.map(function(option, index) {
       return {id: option._id, label: option.name, value: index}
