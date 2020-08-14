@@ -25,7 +25,7 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/user-db",{ useN
 	.catch(err => console.log('error', err));
 
 if (process.env.NODE_ENV === 'production') {
-	app.use(express.static('adaptation-plan-frontend/build'))
+	app.use(express.static('../adaptation-plan-frontend/build'))
 }
 
 app.listen(config.port, err => {
