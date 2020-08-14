@@ -1,14 +1,6 @@
 import mongoose, {Schema} from 'mongoose';
 
 const date = new Date()
-/*const TaskSchema = new Schema ({
-	title: {type: String},
-	bodyTask: {type: String},
-	createdAt: { type: String, require: true, default: date.toLocaleDateString()},
-	taskPeriodStart: { type: String},
-	taskPeriodEnd: { type: String},
-	resultTask: {type: Boolean}
-})*/
 const AdaptationPlanSchema = new Schema({
 	fioEmployee: {type: Schema.Types.ObjectId, ref: 'User'},
 	position: { type: String},

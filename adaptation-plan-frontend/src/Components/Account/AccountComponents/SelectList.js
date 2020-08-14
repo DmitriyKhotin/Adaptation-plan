@@ -10,11 +10,6 @@ import Loader from "./Loader";
 function SelectList(props) {
   const [token] = useState(localStorage.getItem('token'))
   const startValue = { label: 'Выберите..', value: ''}
-/*  let startValue
-  if (props.fioEmployee)
-    startValue = {label: props.fioEmployee, value: ''}
-  else
-    startValue = { label: 'Выберите..', value: ''}*/
   const [options, setOptions] = useState(
     {label: 'Загрузка...', value: 'Загрузка...'}
   )

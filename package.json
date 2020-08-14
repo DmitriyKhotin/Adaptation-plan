@@ -7,7 +7,7 @@
     "backend": "npm install --prefix applicationCaselab && nodemon --exec babel-node applicationCaselab/server.js",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix adaptation-plan-frontend && npm run build --prefix adaptation-plan-frontend",
     "start": "nodemon --exec babel-node applicationCaselab/server.js",
-    "dev": "concurrently \"npm frontend\" \"npm backend\""
+    "dev": "npm run frontend && npm run backend"
   },
   "engine": {
     "node": "14.4.0",

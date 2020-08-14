@@ -29,7 +29,6 @@ function Plan(props) {
   }
   
   useEffect(() => {
-    console.log('PROPS.PLAN-----------------', props.plan)
     if (props.plan){
       setStage(props.plan.stage)
     }
@@ -50,9 +49,6 @@ function Plan(props) {
   
 //  ------------------------------------------------------------
   if (token){
-    /*if (props.loadingPlan)
-      return <Loader/>
-    else {*/
       if (props.profile.role === "HR-Сотрудник") {
         return (
           <div className="plan">

@@ -7,23 +7,19 @@ const initialState = {
 }
 
 export const authReducer = (state = initialState, action) => {
-  console.log('authReducer', state)
   switch (action.type) {
     case FETCH_AUTH_REQUEST:
-      console.log('FETCH_AUTH_REQUEST')
       return {
         ...state,
         loading: true,
     }
     case FETCH_AUTH_FAILURE:
-      console.log('FETCH_AUTH_FAILURE')
       return {
         ...state,
         loading: false,
         error: action.payload
       }
     case FETCH_AUTH_SUCCESS:
-      console.log('FETCH_AUTH_SUCCESS')
       return {
         ...state,
         loading: false,

@@ -28,7 +28,6 @@ const fetchUpdatePlanSuccess = plan => {
 
 //action creator where we got data from server
 export function updatePlan(object, token) {
-  console.log("updatePlan")
   return (dispatch) => {
     dispatch(fetchUpdatePlan())
     axios
@@ -37,7 +36,6 @@ export function updatePlan(object, token) {
           authorization: token
     }})
       .then(response => {
-        console.log(response.data)
         dispatch(fetchUpdatePlanSuccess(response.data))
       })
       .catch(error => {
@@ -47,7 +45,6 @@ export function updatePlan(object, token) {
 }
   
 export function updateStage(object, token) {
-  console.log("updateStage")
   return (dispatch) => {
     dispatch(fetchUpdatePlan())
     axios
@@ -56,7 +53,6 @@ export function updateStage(object, token) {
           authorization: token
     }})
       .then(response => {
-        console.log(response.data)
         dispatch(fetchUpdatePlanSuccess(response.data))
       })
       .catch(error => {
@@ -66,7 +62,6 @@ export function updateStage(object, token) {
 }
 
 export function addNewTask(object, token) {
-  console.log("addNewTask")
   return (dispatch) => {
     dispatch(fetchUpdatePlan())
     axios
@@ -75,7 +70,6 @@ export function addNewTask(object, token) {
           authorization: token
     }})
       .then(response => {
-        console.log(response.data)
         dispatch(fetchUpdatePlanSuccess(response.data))
       })
       .catch(error => {
@@ -85,7 +79,6 @@ export function addNewTask(object, token) {
 }
 
 export function deleteTask(object, token) {
-  console.log("deleteTask")
   return (dispatch) => {
     dispatch(fetchUpdatePlan())
     axios
@@ -94,7 +87,6 @@ export function deleteTask(object, token) {
           authorization: token
     }})
       .then(response => {
-        console.log(response.data)
         dispatch(fetchUpdatePlanSuccess(response.data))
       })
       .catch(error => {
@@ -104,7 +96,6 @@ export function deleteTask(object, token) {
 }
 
 export function getPlanCurrentEmployee(object, token) {
-  console.log("getPlanCurrentEmployee")
   return (dispatch) => {
     dispatch(fetchUpdatePlan())
     axios
@@ -114,7 +105,6 @@ export function getPlanCurrentEmployee(object, token) {
         }
       })
       .then(response => {
-        console.log(response.data)
         dispatch(fetchUpdatePlanSuccess(response.data))
       })
       .catch(error => {
@@ -124,7 +114,6 @@ export function getPlanCurrentEmployee(object, token) {
 }
 
 export function updatePlanTask(object, token) {
-  console.log("updatePlanTask")
   return (dispatch) => {
     dispatch(fetchUpdatePlan())
     axios
@@ -133,7 +122,6 @@ export function updatePlanTask(object, token) {
           authorization: token
         }})
       .then(response => {
-        console.log(response.data)
         dispatch(fetchUpdatePlanSuccess(response.data))
       })
       .catch(error => {
@@ -143,7 +131,6 @@ export function updatePlanTask(object, token) {
 }
 
 export function getPlan(token) {
-  console.log("getPlan")
   return (dispatch) => {
     dispatch(fetchUpdatePlan())
     axios

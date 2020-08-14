@@ -17,21 +17,22 @@ import checkToken from './middlewares/checkToken';
 import directorRoute from './routes/director';
 import currentPlan from './routes/currentPlan';
 
-const app = express();
-const MONGODB_URI = process.env.NODE_ENV !== "production" ? 'mongodb+srv://dmitriykhotin:KM2d3d37g@adaptation-plan.mplfs.mongodb.net/Adaptation-plan?retryWrites=true&w=majority' : process.env.MONGODB_URI
 mongoose.Promise = bluebird;
+const app = express();
+
+const MONGODB_URI =
+	process.env.NODE_ENV !== "production"
+	?
+	'mongodb+srv://dmitriykhotin:KM2d3d37g@adaptation-plan.mplfs.mongodb.net/Adaptation-plan?retryWrites=true&w=majority'
+	:
+	process.env.MONGODB_URI
+
 mongoose.connect(MONGODB_URI || "mongodb://localhost/user-db",{ useNewUrlParser: true, useUnifiedTopology: true,useFindAndModify: false })
 	.then(() => console.log("Database Connected Successfully"))
 	.catch(err => console.log('error', err));
+
 if (process.env.NODE_ENV === "production") {
-	
-	// Set static folder
 	app.use(express.static("adaptation-plan-frontend/build"));
-	
-	// index.html for all page routes
-	/*	app.get("*", (req, res) => {
-      res.sendFile(path.resolve(__dirname, "../adaptation-plan-frontend", "build", "index.html"));
-    });*/
 }
 
 const port = process.env.PORT || 3001
