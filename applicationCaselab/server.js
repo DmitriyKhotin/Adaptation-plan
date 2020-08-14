@@ -24,16 +24,6 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/user-db",{ useN
 	.then(() => console.log("Database Connected Successfully"))
 	.catch(err => console.log('error', err));
 
-if (process.env.NODE_ENV === 'production') {
-	app.use(express.static('../adaptation-plan-frontend/build'))
-}
-
-app.listen(config.port, err => {
-	if (err) throw err;
-	
-	console.log(`Server listening on port ${config.port}`);
-});
-
 app.use(morgan('tiny'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true}));
@@ -51,3 +41,20 @@ app.use('/', checkToken, directorRoute);
 app.use('/', checkToken, currentPlan);
 app.use('/', checkToken, plan);
 app.use(errorHandler);
+
+if (process.env.NODE_ENV === "production") {
+	
+	// Set static folder
+	app.use(express.static("../adaptation-plan-frontend/build"));
+	
+	// index.html for all page routes
+	app.get("*", (req, res) => {
+		res.sendFile(path.resolve(__dirname, "../adaptation-plan-frontend", "build", "index.html"));
+	});
+}
+
+const port = process.env.PORT || 5000
+
+app.listen(port, () => {
+	console.log(`Server Running at ${port}`)
+});
