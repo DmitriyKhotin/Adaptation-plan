@@ -123,7 +123,6 @@ function Plan(props) {
 }
 
 const mapStateToProps = state => {
-  console.log('planState', state)
   return {
     plan: state.adaptationPlanReducer.plan,
     profile: state.profileReducer.profile,
