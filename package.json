@@ -3,8 +3,6 @@
   "version": "1.0.0",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "client": "cd adaptation-plan-frontend && npm start",
-    "build": "cd adaptation-plan-frontend && npm run build",
     "frontend": "npm install --prefix adaptation-plan-frontend && npm start --prefix adaptation-plan-frontend",
     "backend": "npm install --prefix applicationCaselab && nodemon --exec babel-node applicationCaselab/server.js",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix adaptation-plan-frontend && npm run build --prefix adaptation-plan-frontend",
