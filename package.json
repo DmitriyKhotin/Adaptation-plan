@@ -10,7 +10,7 @@
     "build": "cd adaptation-plan-frontend && npm run build",
     "install-client": "cd adaptation-plan-frontend && npm install",
     "heroku-postbuild": "npm run install-client && npm run build",
-    "start": "cd applicationCaselab && npm start",
+    "start": "concurrently \"npm start\" \"npm run client\"",
     "dev": "concurrently \"npm start\" \"npm run client\""
   }
 }
