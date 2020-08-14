@@ -48,9 +48,9 @@ if (process.env.NODE_ENV === "production") {
 	app.use(express.static("../adaptation-plan-frontend/build"));
 	
 	// index.html for all page routes
-	app.get("*", (req, res) => {
+/*	app.get("*", (req, res) => {
 		res.sendFile(path.resolve(__dirname, "../adaptation-plan-frontend", "build", "index.html"));
-	});
+	});*/
 }
 
 const port = process.env.PORT || 5000
