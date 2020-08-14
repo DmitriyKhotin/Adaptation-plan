@@ -18,9 +18,9 @@ import directorRoute from './routes/director';
 import currentPlan from './routes/currentPlan';
 
 const app = express();
-const MONGODB_URI = 'mongodb+srv://dmitriykhotin:KM2d3d37g@adaptation-plan.mplfs.mongodb.net/Adaptation-plan?retryWrites=true&w=majority'
+const MONGODB_URI = process.env.NODE_ENV !== "production" ? 'mongodb+srv://dmitriykhotin:KM2d3d37g@adaptation-plan.mplfs.mongodb.net/Adaptation-plan?retryWrites=true&w=majority' : process.env.NODE_ENV
 mongoose.Promise = bluebird;
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/user-db",{ useNewUrlParser: true, useUnifiedTopology: true,useFindAndModify: false })
+mongoose.connect(MONGODB_URI || "mongodb://localhost/user-db",{ useNewUrlParser: true, useUnifiedTopology: true,useFindAndModify: false })
 	.then(() => console.log("Database Connected Successfully"))
 	.catch(err => console.log('error', err));
 
@@ -53,7 +53,7 @@ if (process.env.NODE_ENV === "production") {
 	});*/
 }
 
-const port = process.env.PORT || 5000
+const port = process.env.PORT || 3001
 
 app.listen(port, () => {
 	console.log(`Server Running at ${port}`)

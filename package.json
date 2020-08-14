@@ -5,10 +5,11 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "client": "cd adaptation-plan-frontend && npm start",
     "build": "cd adaptation-plan-frontend && npm run build",
-    "install-client": "cd adaptation-plan-frontend && npm install",
+    "frontend": "npm install --prefix adaptation-plan-frontend && npm start --prefix adaptation-plan-frontend",
+    "backend": "npm install --prefix applicationCaselab && nodemon --exec babel-node applicationCaselab/server.js",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix adaptation-plan-frontend && npm run build --prefix adaptation-plan-frontend",
     "start": "nodemon --exec babel-node applicationCaselab/server.js",
-    "dev": "concurrently \"npm start\" \"npm run client\""
+    "dev": "concurrently \"npm frontend\" \"npm backend\""
   },
   "engine": {
     "node": "14.4.0",
